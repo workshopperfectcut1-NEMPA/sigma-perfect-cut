@@ -122,3 +122,17 @@ with col_dir:
                 st.metric("Error", f"{erro:.2f}%", delta="Fail", delta_color="inverse")
         else:
             st.info("Adjust sliders & click SUBMIT.")
+ # --- SIDEBAR (Contador e Créditos) ---
+with st.sidebar:
+    st.markdown("---")
+    st.markdown("### 🌍 Visitor Tracker")
+    
+    # Substitua o código abaixo pelo que você copiou do site Flag Counter
+    # Importante: Mantenha o unsafe_allow_html=True
+    st.markdown("""
+    <a href="https://info.flagcounter.com/50Hp"><img src="https://s01.flagcounter.com/count2/50Hp/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("---")
+    st.markdown("**Developed by:** Prof. Roberto Sant'Anna")
+    st.markdown("© 2026 NEMPA - UFBA")
