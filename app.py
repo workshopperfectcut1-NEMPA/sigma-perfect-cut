@@ -11,7 +11,8 @@ from utils import (
     create_knife,
     calculate_cut,
     calculate_error,
-    optimized_binary_search
+    optimized_binary_search,
+    emoji_rain
 )
 
 # --- PAGE CONFIGURATION ---
@@ -143,19 +144,35 @@ with col_right:
         st.pyplot(fig, width="content")
         plt.close(fig)
 
-    with sub_col_metrics:
+with sub_col_metrics:
         st.markdown("### Results")
         if st.session_state.showed_result:
             st.metric("Total Area", f"{total_area:.2f}")
             st.metric("Your Cut", f"{cut_area:.2f}")
+            st.metric("Error", f"{error:.2f}%")
             
-            if abs(error) < 1.0:
-                st.metric("Error", f"{error:.2f}%", delta="PERFECT!")
+            abs_error = abs(error)
+            
+            if abs_error < 1.0:
+                st.success("🎯 **PERFECT CUT!** 🎉")
                 st.balloons()
+                
+            elif abs_error < 2.0:
+                st.success("✨ **Super!** Great job! 👏")
+                emoji_rain("👏") 
+                
+            elif abs_error < 5.0:
+                st.info("👍 **Good attempt!** Keep refining!")
+                emoji_rain("👍") 
+                
+            elif abs_error < 10.0:
+                st.warning("⚠️ **Unbalanced Split** - Try again!")
+                emoji_rain("⚠️")
+                
             else:
-                st.metric("Error", f"{error:.2f}%", delta="Fail", delta_color="inverse")
-        else:
-            st.info("Adjust sliders & click SUBMIT.")
+                st.error("😠 **Very Unbalanced!** 💢")
+                st.markdown("**Tip:** Use the Binary Search for guidance!")
+                emoji_rain("💢") 
 
 # --- BINARY SEARCH CONVERGENCE GRAPHS ---
 if st.session_state.search_history is not None:
