@@ -1,4 +1,4 @@
-# 🇺🇸 [English](README.md) | [🇧🇷 Português](README.pt-br.md)
+# 🇺🇸 [English](README.md) | [🇧🇷 Português](README.pt-BR.md)
 
 # 🔪 Codificando o Corte Perfeito  
 ### Workshop SigmaCamp 2026 | NEMPA - UFBA
