@@ -1,4 +1,4 @@
-# 🇺🇸 [English](README.md) | [🇧🇷 Português](RREADME.pt-BR.md)
+# 🇺🇸 [English](README.md) | [🇧🇷 Português](README.pt-BR.md)
 
 # 🔪 Coding the Perfect Cut
 ### SigmaCamp 2026 Workshop | NEMPA - UFBA
