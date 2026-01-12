@@ -2,13 +2,14 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from shapely.geometry import LineString
 from shapely.affinity import rotate
+import random
 import numpy as np
 import time
 
 # Import functions from utils module
 from utils import (
     create_brownie,
-    create_knife,
+    create_complex_polygon,
     calculate_cut,
     calculate_error,
     optimized_binary_search,
@@ -55,16 +56,47 @@ def reset_result():
 brownie = create_brownie()
 total_area = brownie.area
 
+if "brownie" not in st.session_state:
+    st.session_state.brownie = brownie
+if "total_area" not in st.session_state:
+    st.session_state.total_area = total_area
+
+brownie = st.session_state.brownie
+total_area = st.session_state.total_area
+
 # --- MAIN LAYOUT ---
 col_left, col_right = st.columns([1, 2], gap="large")
+
+
+def chaos_mode_changed():
+    print("chaos mode changed:", chaos_mode)    
+    reset_result()
+    # Caso esteja no chaos mode...
+    if not chaos_mode:
+        st.session_state.brownie = create_complex_polygon()
+        st.session_state.random_angle = random.uniform(-180.0, 0.0)
+        
+        
+    # Caso NÃO esteja no chaos mode...
+    else:
+        st.session_state.brownie = create_brownie()
+    st.session_state.total_area = st.session_state.brownie.area
+
 
 # LEFT COLUMN (CONTROLS)
 with col_left:
     st.info("🎛️ **Control Panel**")
     
     # Sliders
-    angle = st.slider("1. Knife Angle (°)", 0, 180, 0, on_change=reset_result)
-    position = st.slider("2. Knife Position", -4.0, 4.0, 0.0, step=0.05, on_change=reset_result)
+    chaos_mode = st.checkbox("🔥 Chaos Mode", value=False, on_change=chaos_mode_changed)
+    if chaos_mode:
+        angle = st.slider("1. Knife Angle (°)", -180.0, 0.0, st.session_state.random_angle, step=0.1, on_change=reset_result)
+        angle = abs(angle)
+        print("angle selected:", angle)
+        position = st.slider("2. Knife Position", -4.0, 4.0, -4.0, step=0.05, on_change=reset_result)
+    else:
+        angle = st.slider("1. Knife Angle (°)", 0, 180, 0, on_change=reset_result)
+        position = st.slider("2. Knife Position", -4.0, 4.0, 0.0, step=0.05, on_change=reset_result)
     
     st.write("") 
     
