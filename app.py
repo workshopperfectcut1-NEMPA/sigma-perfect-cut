@@ -247,10 +247,37 @@ if st.session_state.search_history is not None:
 
 # --- SIDEBAR (Counter and Credits) ---
 with st.sidebar:
-    st.markdown("---")
-    st.markdown("### 🌍 Visitor Tracker")
+    st.divider()
     
-    # Simplified visitor counter that works
+    st.markdown("### 🏆 The Team (NEMPA)")
+    
+    # Project Lead
+    st.markdown("**Project Lead**")
+    st.markdown("👨‍🏫 *Prof. Dr. Roberto Sant'Anna*")
+    
+    st.write("") # Espaço para separar
+    
+    # Lead Dev
+    st.markdown("**Lead Developer**")
+    st.markdown("🛠️ *Enzo Ribeiro*")
+    
+    st.write("")
+    
+    # Core Dev (Reconhecimento técnico)
+    st.markdown("**Core Developer**")
+    st.markdown("🧠 *Ikaro Vieira*")
+    
+    st.write("")
+
+    # Scientific Devs (O time de apoio)
+    st.markdown("**Scientific Developers**")
+    st.markdown("💻 *Felipe Brasileiro*")
+    st.markdown("💻 *Iago Nunes*")
+
+    st.divider()
+    
+    # Visitor Counter (Mantivemos o código do contador)
+    st.markdown("### 🌍 Visitor Tracker")
     st.markdown("""
          <a href="https://info.flagcounter.com/50Hp">
                 <img src="https://s01.flagcounter.com/count2/50Hp/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" 
@@ -259,5 +286,4 @@ with st.sidebar:
                 """, unsafe_allow_html=True)
 
     st.markdown("---")
-    st.markdown("**Developed by:** Prof. Roberto Sant'Anna")
     st.markdown("© 2026 NEMPA - UFBA")
