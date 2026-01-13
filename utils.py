@@ -10,13 +10,49 @@ def create_brownie():
     brownie_coords = [(-2, -2), (1, -3), (3, 0), (2, 3), (-3, 2)]
     return Polygon(brownie_coords)
 
-def create_complex_polygon(num_vertices=1000):
-    """Creates a complex polygon with a specified number of vertices."""
+# def create_complex_polygon(num_vertices=1000):
+#     """Creates a complex polygon with a specified number of vertices."""
+#     # angles = np.linspace(0, 2 * np.pi, num_vertices, endpoint=False)
+#     angles = np.sort(np.random.uniform(0, 2*np.pi, num_vertices))
+#     radius = np.random.uniform(1, 3, num_vertices)  # Random radius for complexity
+#     points = [(r * np.cos(a), r * np.sin(a)) for r, a in zip(radius, angles)]
+#     print('complex polygon created with', num_vertices, 'vertices')
+#     return Polygon(points)
+
+def create_complex_polygon(num_vertices=300): # Aumentei um pouco os vértices pra ficar liso
     angles = np.linspace(0, 2 * np.pi, num_vertices, endpoint=False)
-    radius = np.random.uniform(1, 3, num_vertices)  # Random radius for complexity
+    
+    # --- AJUSTE DE "DRAMA" ---
+    
+    # 1. Base menor: O "centro" seguro é pequeno
+    base_radius = 2.0 
+    
+    # 2. Onda Lenta (Assimetria Global): Deixa a figura oval/torta
+    # Aumentei a força aqui (antes era máx 1.5)
+    wave_slow = np.random.uniform(1.0, 2.0) * np.sin(angles + np.random.uniform(0, 2*np.pi))
+    
+    # 3. Onda Rápida (Os Raios/Pontas): Aqui é o segredo dos raios grandes!
+    # Escolhemos aleatoriamente entre 4 a 8 pontas grandes
+    num_spikes = np.random.randint(4, 9) 
+    # Amplitude alta para criar "vales" fundos e "picos" altos
+    wave_spikes = np.random.uniform(1.5, 3.0) * np.sin(num_spikes * angles + np.random.uniform(0, 2*np.pi))
+    
+    # Soma tudo
+    radius = base_radius + wave_slow + wave_spikes
+    
+    # Adiciona um ruído fino só pra deixar a borda "crocante"
+    noise = np.random.uniform(-0.3, 0.3, num_vertices)
+    radius += noise
+    
+    # IMPORTANTE: Clip para 0.2 para garantir que o raio nunca seja negativo (o que cruzaria o centro)
+    radius = np.clip(radius, 0.2, None)
+
     points = [(r * np.cos(a), r * np.sin(a)) for r, a in zip(radius, angles)]
-    print('complex polygon created with', num_vertices, 'vertices')
-    return Polygon(points)
+    
+    # Rotaciona para variar a posição inicial
+    poly = Polygon(points)
+    return rotate(poly, np.random.uniform(0, 360), origin='centroid')
+
 
 
 def create_knife(position, angle):
