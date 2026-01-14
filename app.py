@@ -19,45 +19,45 @@ from utils import (
 
 # Filenames kept as original to prevent FileNotFoundError
 
-"""
-Audio File Customization Guide
-================================
 
-To change the audio files used in the application:
+# Audio File Customization Guide
+# ================================
 
-1. File Paths:
-   - Victory sound: "assets/audios/vitória  🔊 efeito sonoro para vídeo🔊 - Efeitos sonoros (youtube).mp3"
-   - Lose sound: "assets/audios/perca.mp3"
+# To change the audio files used in the application:
 
-2. How to Add New Audio:
-   - Place your audio files in the assets/audios/ directory
-   - Use MP3 format (recommended) or other common formats (WAV, OGG, etc.)
-   - Update the file path to point to your new audio file
+# 1. File Paths:
+#    - Victory sound: "assets/audios/vitória  🔊 efeito sonoro para vídeo🔊 - Efeitos sonoros (youtube).mp3"
+#    - Lose sound: "assets/audios/perca.mp3"
 
-3. Audio File Format:
-   audio_file = open("assets/audios/your_audio_name.mp3", "rb")
-   audio_bytes = audio_file.read()
+# 2. How to Add New Audio:
+#    - Place your audio files in the assets/audios/ directory
+#    - Use MP3 format (recommended) or other common formats (WAV, OGG, etc.)
+#    - Update the file path to point to your new audio file
 
-4. Playing Audio with st.audio():
-   - format: "audio/mp3" (supports: audio/mp3, audio/wav, audio/ogg, audio/flac)
-   - start_time: Where to start playing (e.g., "5s" for 5 seconds)
-   - end_time: Where to stop playing (e.g., "10s" for 10 seconds)
-   - autoplay: True to automatically play when condition is met
-   - loop: True to loop the audio
+# 3. Audio File Format:
+#    audio_file = open("assets/audios/your_audio_name.mp3", "rb")
+#    audio_bytes = audio_file.read()
+
+# 4. Playing Audio with st.audio():
+#    - format: "audio/mp3" (supports: audio/mp3, audio/wav, audio/ogg, audio/flac)
+#    - start_time: Where to start playing (e.g., "5s" for 5 seconds)
+#    - end_time: Where to stop playing (e.g., "10s" for 10 seconds)
+#    - autoplay: True to automatically play when condition is met
+#    - loop: True to loop the audio
    
-5. Examples:
-   - st.audio(audio_bytes, format="audio/mp3", autoplay=True)
-   - st.audio(audio_bytes, format="audio/mp3", start_time="2s", end_time="8s")
-   - st.audio(audio_bytes, format="audio/wav", loop=True)
+# 5. Examples:
+#    - st.audio(audio_bytes, format="audio/mp3", autoplay=True)
+#    - st.audio(audio_bytes, format="audio/mp3", start_time="2s", end_time="8s")
+#    - st.audio(audio_bytes, format="audio/wav", loop=True)
 
-6. File Structure:
-   sigma-perfect-cut/
-   ├── assets/
-   │   └── audios/
-   │       ├── vitória__efeito_sonoro.mp3
-   │       ├── perca.mp3
-   │       └── (add more audio files here)
-"""
+# 6. File Structure:
+#    sigma-perfect-cut/
+#    ├── assets/
+#    │   └── audios/
+#    │       ├── vitória__efeito_sonoro.mp3
+#    │       ├── perca.mp3
+#    │       └── (add more audio files here)
+
 
 audio_file = open("assets/audios/vitória  🔊 efeito sonoro para vídeo🔊 - Efeitos sonoros (youtube).mp3", "rb")
 audio_bytes = audio_file.read()
@@ -153,40 +153,40 @@ with col_left:
 
         # 3. Angle Slider
         # Determine ranges based on Chaos Mode
-        """
-        Slider Customization Guide
-        ===========================
         
-        To customize the sliders, modify these key parameters:
+        # Slider Customization Guide
+        # ===========================
         
-        Main parameters:
-        - min_value: Minimum slider value
-        - max_value: Maximum slider value
-        - value: Default starting value
-        - step: Speed/increment of slider movement (smaller = slower, larger = faster)
-        - label: Display text for the slider
-        - help: Tooltip text when hovering
-        - on_change: Callback function when slider changes
-        - disabled: Set to True to make slider read-only
+        # To customize the sliders, modify these key parameters:
         
-        Step examples (controls slider speed):
-        - step=0.1: Very fine control, smooth movement
-        - step=0.5: Moderate speed (current angle slider)
-        - step=1.0: Faster movement
-        - step=5.0: Very fast movement
+        # Main parameters:
+        # - min_value: Minimum slider value
+        # - max_value: Maximum slider value
+        # - value: Default starting value
+        # - step: Speed/increment of slider movement (smaller = slower, larger = faster)
+        # - label: Display text for the slider
+        # - help: Tooltip text when hovering
+        # - on_change: Callback function when slider changes
+        # - disabled: Set to True to make slider read-only
         
-        Interactive features:
-        - Add key/keyboard input by setting key parameter
-        - Format display with format parameter: format="%.2f"
-        - Add validation with callback functions
-        - Disable based on conditions with if statements
+        # Step examples (controls slider speed):
+        # - step=0.1: Very fine control, smooth movement
+        # - step=0.5: Moderate speed (current angle slider)
+        # - step=1.0: Faster movement
+        # - step=5.0: Very fast movement
         
-        Examples:
-        - st.slider("Speed", 0, 100, 50, step=1)
-        - st.slider("Precise", 0.0, 1.0, 0.5, step=0.01)
-        - st.slider("Fast", 0, 1000, 500, step=50)
-        - st.slider("Value", 0, 100, format="%d units")
-        """
+        # Interactive features:
+        # - Add key/keyboard input by setting key parameter
+        # - Format display with format parameter: format="%.2f"
+        # - Add validation with callback functions
+        # - Disable based on conditions with if statements
+        
+        # Examples:
+        # - st.slider("Speed", 0, 100, 50, step=1)
+        # - st.slider("Precise", 0.0, 1.0, 0.5, step=0.01)
+        # - st.slider("Fast", 0, 1000, 500, step=50)
+        # - st.slider("Value", 0, 100, format="%d units")
+       
         if chaos_mode:
             min_ang, max_ang = -180.0, 0.0
             def_ang = st.session_state.random_angle
@@ -283,52 +283,52 @@ with col_right:
         fig, ax = plt.subplots(figsize=(6, 6))
         
         # Fill Customization Guide
-        """
-        Polygon Fill Customization Guide
-        =================================
         
-        To customize the brownie polygon fill, modify parameters in ax.fill():
+        # Polygon Fill Customization Guide
+        # =================================
         
-        Main parameters:
-        - fc (facecolor): Fill color of the polygon
-        - ec (edgecolor): Border/edge color of the polygon
-        - alpha: Transparency level (0.0 = transparent, 1.0 = opaque)
-        - lw (linewidth): Border line thickness
-        - hatch: Pattern inside the polygon
+        # To customize the brownie polygon fill, modify parameters in ax.fill():
         
-        Color formats (same as line color):
-        - Hex: "#FF6B6B", "#4488ff", "#00FF00"
-        - Named: "red", "blue", "green", "orange", "purple", "cyan"
-        - RGB tuples: (1, 0, 0), (0, 0, 1), (0, 1, 0)
+        # Main parameters:
+        # - fc (facecolor): Fill color of the polygon
+        # - ec (edgecolor): Border/edge color of the polygon
+        # - alpha: Transparency level (0.0 = transparent, 1.0 = opaque)
+        # - lw (linewidth): Border line thickness
+        # - hatch: Pattern inside the polygon
         
-        Hatch patterns: "/", "\\", "|", "-", "+", "x", "o", "O", ".", "*"
+        # Color formats (same as line color):
+        # - Hex: "#FF6B6B", "#4488ff", "#00FF00"
+        # - Named: "red", "blue", "green", "orange", "purple", "cyan"
+        # - RGB tuples: (1, 0, 0), (0, 0, 1), (0, 1, 0)
         
-        Examples:
-        - ax.fill(x, y, alpha=0.7, fc="lightblue", ec="darkblue", lw=2)
-        - ax.fill(x, y, alpha=0.5, fc="#FF6B6B", ec="red", lw=1, hatch="/")
-        - ax.fill(x, y, alpha=0.6, fc="yellow", ec="black", lw=2, hatch="x")
-        """
+        # Hatch patterns: "/", "\\", "|", "-", "+", "x", "o", "O", ".", "*"
+        
+        # Examples:
+        # - ax.fill(x, y, alpha=0.7, fc="lightblue", ec="darkblue", lw=2)
+        # - ax.fill(x, y, alpha=0.5, fc="#FF6B6B", ec="red", lw=1, hatch="/")
+        # - ax.fill(x, y, alpha=0.6, fc="yellow", ec="black", lw=2, hatch="x")
+       
         x, y = brownie.exterior.xy
         ax.fill(x, y, alpha=0.5, fc="gray", ec="black", lw=2)
         
         # Visual Line
-        """
-        Line Color Customization Guide
-        ================================
         
-        To change the line color, modify the 'color' parameter in ax.plot().
+        # Line Color Customization Guide
+        # ================================
         
-        Available color formats:
-        - Hex colors: "#FF4B4B" (red), "#4488ff" (blue), "#00FF00" (green), etc.
-        - Named colors: "red", "blue", "green", "purple", "yellow", "cyan", "magenta", etc.
-        - RGB tuples: (1, 0, 0) for red, (0, 0, 1) for blue, (0, 1, 0) for green
+        # To change the line color, modify the 'color' parameter in ax.plot().
         
-        Examples:
-        - ax.plot(lx, ly, color="green", lw=3, ls="--")
-        - ax.plot(lx, ly, color="#00FF00", lw=3, ls="--")
-        - ax.plot(lx, ly, color="lime", lw=3, ls="--")
-        - ax.plot(lx, ly, color=(1, 0.5, 0), lw=3, ls="--")  # Orange
-        """
+        # Available color formats:
+        # - Hex colors: "#FF4B4B" (red), "#4488ff" (blue), "#00FF00" (green), etc.
+        # - Named colors: "red", "blue", "green", "purple", "yellow", "cyan", "magenta", etc.
+        # - RGB tuples: (1, 0, 0) for red, (0, 0, 1) for blue, (0, 1, 0) for green
+        
+        # Examples:
+        # - ax.plot(lx, ly, color="green", lw=3, ls="--")
+        # - ax.plot(lx, ly, color="#00FF00", lw=3, ls="--")
+        # - ax.plot(lx, ly, color="lime", lw=3, ls="--")
+        # - ax.plot(lx, ly, color=(1, 0.5, 0), lw=3, ls="--")  # Orange
+       
         rad = np.radians(angle)
         lx, ly = rotate(LineString([(position, -10), (position, 10)]), angle, origin=(0, 0)).xy
         ax.plot(lx, ly, color="#FF4B4B", lw=3, ls="--")
