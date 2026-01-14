@@ -141,7 +141,7 @@ with col_left:
     
     with st.container(border=True):
         # 1. Chaos Mode Checkbox
-        chaos_mode = st.checkbox("🔥 Chaos Mode", value=False, on_change=chaos_mode_changed)
+        chaos_mode = st.checkbox("🔥 Clara", value=False, on_change=chaos_mode_changed)
         
         st.divider()
 
