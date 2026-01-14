@@ -88,7 +88,7 @@ with col_left:
     st.info("🎛️ **Control Panel**")
     
     # Sliders
-    chaos_mode = st.checkbox("🔥 Chaos Mode", value=False, on_change=chaos_mode_changed)
+    chaos_mode = st.checkbox("🔥 Clara", value=False, on_change=chaos_mode_changed)
     if chaos_mode:
         angle = st.slider("1. Knife Angle (°)", -180.0, 0.0, st.session_state.random_angle, step=0.1, on_change=reset_result)
         angle = abs(angle)
