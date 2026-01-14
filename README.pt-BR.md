@@ -65,6 +65,34 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
+## 📚 Recursos de Aprendizado
+
+Para aprofundar sua compreensão sobre os conceitos por trás deste projeto, recomendamos explorar os seguintes recursos:
+
+### Fundamentos Matemáticos
+
+- **Teorema do Valor Intermediário (TVI):** [Khan Academy - Introdução ao TVI](https://www.khanacademy.org/math/calculus-1/cs1-limits-continuity/cs1-intermediate-value-theorem/v/intermediate-value-theorem)
+- **Fundamentos de Topologia:** [3Blue1Brown - Conceitos Fundamentais de Topologia](https://www.youtube.com/c/3Blue1Brown)
+
+### Python
+
+- **Curso em Vídeo:** [Curso em Vídeo - YouTube](https://www.youtube.com/watch?v=S9uPNppGsGo&list=PLvE-ZAFRgX8hnECDn1v9HNTI71veL3oW0&index=2&t=2s)
+- **Documentação:** [Documentação Python](https://docs.python.org/pt-br/)
+- **W3 Schools:** [Tutorial W3 Schools](https://www.w3schools.com/python/default.asp)
+
+### Geometria Computacional
+
+- **Biblioteca Shapely:** [Documentação Oficial do Shapely](https://shapely.readthedocs.io/)
+- **Operações com Polígonos:** Aprenda sobre intersecção, união e cálculos de área
+- **Algoritmos de Geometria 2D:** Estude ray casting, intersecção de segmentos de reta e particionamento espacial
+
+### Desenvolvimento Web com Streamlit
+
+- **Documentação Oficial Streamlit:** [streamlit.io](https://streamlit.io/)
+- **Visualização Interativa:** [Guia de Componentes e Gráficos do Streamlit](https://docs.streamlit.io/library/api-reference/charts)
+
+---
+
 ## 👥 A Equipe (NEMPA – UFBA)
 
 **Coordenação do Projeto**

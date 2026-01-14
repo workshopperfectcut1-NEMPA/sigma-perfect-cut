@@ -65,6 +65,32 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
+## 📚 Learning Resources
+
+To deepen your understanding of the concepts behind this project, we recommend exploring the following resources:
+
+### Mathematical Foundations
+
+- **Intermediate Value Theorem (IVT):** [Khan Academy - IVT Introduction](https://www.khanacademy.org/math/calculus-1/cs1-limits-continuity/cs1-intermediate-value-theorem/v/intermediate-value-theorem)
+- **Topology Basics:** [3Blue1Brown - Topology Fundamental Concepts](https://www.youtube.com/c/3Blue1Brown)
+
+### Python
+
+- **Python Course:** [Curso em Vídeo - YouTube Course](https://www.youtube.com/watch?v=S9uPNppGsGo&list=PLvE-ZAFRgX8hnECDn1v9HNTI71veL3oW0&index=2&t=2s)
+- **Documentation:** [Python Documentation](https://docs.python.org/3/)
+- **W3 Schools:** [W3 Schools Tutorial](https://www.w3schools.com/python/default.asp)
+
+### Computational Geometry
+
+- **Shapely Library:** [Official Shapely Documentation](https://shapely.readthedocs.io/)
+- **Polygon Operations:** Learn about intersection, union, and area calculations
+- **2D Geometry Algorithms:** Study ray casting, line segment intersection, and spatial partitioning
+
+### Web Development with Streamlit
+
+- **Streamlit Official Docs:** [streamlit.io](https://streamlit.io/)
+- **Interactive Visualization:** [Streamlit Components and Plotting Guide](https://docs.streamlit.io/library/api-reference/charts)
+
 ## 👥 The Team (NEMPA – UFBA)
 
 **Project Lead**
